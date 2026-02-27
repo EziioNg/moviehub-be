@@ -79,15 +79,7 @@ const verifyAccount = async (reqBody) => {
     // các bước kiểm tra
     if (!existUser)
       throw new ApiError(StatusCodes.NOT_FOUND, "Account not found");
-    if (existUser.isActive) {
-      // throw new ApiError(
-      //   StatusCodes.NOT_ACCEPTABLE,
-      //   "Account already verified",
-      // );
-      return res.status(200).json({
-        message: "Email already verified",
-      });
-    }
+    if (existUser.isActive) return pickUser(existUser);
     if (reqBody.token !== existUser.verifyToken)
       throw new ApiError(StatusCodes.NOT_ACCEPTABLE, "Token is invalid");
 
