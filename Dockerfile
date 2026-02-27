@@ -21,6 +21,7 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV BUILD_MODE=production
+ENV PORT=5000
 
 RUN corepack enable
 
