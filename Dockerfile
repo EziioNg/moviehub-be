@@ -20,6 +20,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 ENV NODE_ENV=production
+ENV BUILD_MODE=production
 
 RUN corepack enable
 
