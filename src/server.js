@@ -36,11 +36,12 @@ const START_SERVER = () => {
   // Middleware xử lý lỗi tập trung
   app.use(errorHandlingMiddleware);
 
-  // môi trường production(Render)
+  // môi trường production
+  const PORT = process.env.PORT || 5000;
   if (env.BUILD_MODE === "production") {
-    app.listen(process.env.PORT, () => {
+    app.listen(PORT, () => {
       console.log(
-        `Production: Hello ${env.AUTHOR}, I am running at Port: ${process.env.PORT}`,
+        `Production: Hello ${env.AUTHOR}, I am running at Port: ${PORT}`,
       );
     });
   } else {
