@@ -47,7 +47,7 @@ const createNew = async (reqBody) => {
     const getNewUser = await userModel.findOneById(createdUser.insertedId);
 
     // tạo nội dung của email
-    const verificationLink = `${WEBSITE_DOMAINS}/auth/account-verification/verification?email=${getNewUser.email}&token=${getNewUser.verifyToken}`;
+    const verificationLink = `${WEBSITE_DOMAINS}/auth/account-verification?email=${getNewUser.email}&token=${getNewUser.verifyToken}`;
     const customSubject = "Hello from MovieHub! Welcome!";
 
     const templatePath = path.join(
