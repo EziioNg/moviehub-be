@@ -29,6 +29,8 @@ RUN yarn install --production --frozen-lockfile
 # Copy build output từ stage 1
 COPY --from=builder /app/build ./build
 
+COPY --from=builder /app/emails ./emails
+
 EXPOSE 5000
 
 CMD ["node", "build/src/server.js"]
